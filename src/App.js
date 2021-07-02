@@ -10,28 +10,50 @@ In those input fields, you should be able to edit and resubmit the content. Youâ
  
  components needed:
  -headshot box
- -section box
  -input field
  -button
  
  */
 import React from 'react';
-import General from './components/General';
-import Education from './components/Education';
-import Experience from './components/Experience';
-import Headshot from './components/Headshot';
+import Section from './components/Section';
+import Button from './components/Button';
 
-function App() {
-  return (
-    //general information section
+class App extends React.Component {
+  constructor() {
+    super();
 
-    //educational experience section
+    this.state = {
+      mode: 'edit',
+    };
+  }
 
-    //practical experience section
+  handleButton = () => {
+    if (this.state.mode === 'edit') {
+      this.setState({
+        mode: 'submit',
+      });
+    } else {
+      this.setState({
+        mode: 'edit',
+      });
+    };
+  };
 
-    //submit/edit button
-
-  );
+  render() {
+    const { mode, handleButton } = this.state;
+    return (
+      <div>
+        <Section mode={mode} title="General" />
+        <Section mode={mode} title="Education" />
+        <Section mode={mode} title="Experience" />
+        <Button mode={mode} handleButton={handleButton} />
+      </div>
+    );
+  }
 }
 
 export default App;
+
+//logic is - each form element should update its own state with input value on change. submit button should convert
+    //all input fields to HTML elements. App state should handle mode value and pass it down to each section/form 
+    //component as props.  pass down it's name in props
