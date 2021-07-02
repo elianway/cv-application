@@ -7,7 +7,7 @@ const General = (props) => {
   
   
   return (
-
+    //name, email, phone number, headshot
   );
 }
 

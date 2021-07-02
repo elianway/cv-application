@@ -6,7 +6,7 @@ const Experience = (props) => {
   
   
   return (
-
+    //company name, position, tasks of jobs, date from and until worked
   );
 }
 
