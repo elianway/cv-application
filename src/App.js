@@ -9,30 +9,32 @@ class App extends React.Component {
     super();
 
     this.state = {
-      mode: 'edit',
+      mode: 'Submit',
     };
+
+    this.handleButton = this.handleButton.bind(this)
   }
 
   handleButton = () => {
-    if (this.state.mode === 'edit') {
+    if (this.state.mode === 'Edit') {
       this.setState({
-        mode: 'submit',
+        mode: 'Submit',
       });
     } else {
       this.setState({
-        mode: 'edit',
+        mode: 'Edit',
       });
     };
   };
 
   render() {
-    const { mode, handleButton } = this.state;
+    const { mode } = this.state;
     return (
       <div>
         <General mode={mode} />
         <Education mode={mode} />
         <Experience mode={mode} />
-        <Button mode={mode} handleButton={handleButton} />
+        <Button mode={mode} handleButton={this.handleButton} />
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import FormHandler from './formHandler';
-import Headshot from './components/Headshot';
+import Headshot from './Headshot';
 
 const General = (props) => {
   const { mode } = props;

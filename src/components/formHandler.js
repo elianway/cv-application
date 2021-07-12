@@ -11,10 +11,6 @@ class FormHandler extends React.Component {
     };
   }
 
-  isForm = () => {
-    return this.props.mode === 'edit';
-  }
-
   handleInput = (e) => {
     this.setState({
       input: e.target.value,
@@ -25,7 +21,7 @@ class FormHandler extends React.Component {
     const { fieldName } = this.props;
     const { input } = this.state;
     let element;
-    if (this.isForm) {
+    if (this.props.mode === "Submit") {
       element = <Form fieldName={fieldName} input={input} handleInput={this.handleInput} />
     } else {
       element = <HtmlElement fieldName={fieldName} input={input} />

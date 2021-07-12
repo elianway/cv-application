@@ -5,7 +5,7 @@ const Form = (props) => {
   return (
     <div>
       <form>
-        <label htmlFor="fieldInput">{ {fieldName} + ": " }</label>
+        <label htmlFor="fieldInput">{ fieldName + ": " }</label>
         <input
           onChange={handleInput}
           value={input}

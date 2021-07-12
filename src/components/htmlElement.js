@@ -4,7 +4,7 @@ const HtmlElement = (props) => {
   const { fieldName, input } = props;
   return (
     <div>
-      <h3 className="field-element">{ {fieldName} + ": " + {input} }</h3>
+      <p className="field-element">{ fieldName + ": " + input }</p>
     </div>
   );
 };
