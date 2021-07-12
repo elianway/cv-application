@@ -2,7 +2,7 @@ import React from 'react';
 import Form from './Form';
 import HtmlElement from './htmlElement';
 
-class formHandler extends React.Component {
+class FormHandler extends React.Component {
   constructor(props) {
     super(props);
 
@@ -39,4 +39,4 @@ class formHandler extends React.Component {
   }
 }
 
-export default formHandler;
+export default FormHandler;

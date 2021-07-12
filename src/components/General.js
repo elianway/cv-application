@@ -1,13 +1,23 @@
 import React from 'react';
-import Form from './Form';
+import FormHandler from './formHandler';
 import Headshot from './components/Headshot';
 
 const General = (props) => {
-  const { mode, title } = props;
+  const { mode } = props;
   
   
   return (
-    //name, email, phone number, headshot
+    <div>
+      <Headshot />
+      <div className="section-header">
+        <h2 className="section-header-text">General</h2>
+      </div>
+      <div className="element-container">
+        <FormHandler fieldName="Name" mode={mode} />
+        <FormHandler fieldName="Email" mode={mode} />
+        <FormHandler fieldName="Phone" mode={mode} />
+      </div>
+    </div>
   );
 }
 

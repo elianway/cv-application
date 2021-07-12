@@ -1,11 +1,23 @@
 import React from 'react';
-import Form from './Form';
+import FormHandler from './formHandler';
 
 const Education = (props) => {
-  const { mode, title } = props;
+  const { mode } = props;
   
   return (
-    //school name, area of study, date of study
+    <div>
+      <div className="section-header">
+        <h2 className="section-header-text">Education</h2>
+      </div>
+      <div className="element-container">
+        <FormHandler fieldName="School Name" mode={mode} />
+        <FormHandler fieldName="Major" mode={mode} />
+        <FormHandler fieldName="Date" mode={mode} />
+        <FormHandler fieldName="School Name" mode={mode} />
+        <FormHandler fieldName="Major" mode={mode} />
+        <FormHandler fieldName="Date" mode={mode} />
+      </div>
+    </div>
   );
 }
 

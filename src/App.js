@@ -1,5 +1,7 @@
 import React from 'react';
-import Section from './components/Section';
+import General from './components/General';
+import Education from './components/Education';
+import Experience from './components/Experience';
 import Button from './components/Button';
 
 class App extends React.Component {
@@ -27,9 +29,9 @@ class App extends React.Component {
     const { mode, handleButton } = this.state;
     return (
       <div>
-        <Section mode={mode} title="General" />
-        <Section mode={mode} title="Education" />
-        <Section mode={mode} title="Experience" />
+        <General mode={mode} />
+        <Education mode={mode} />
+        <Experience mode={mode} />
         <Button mode={mode} handleButton={handleButton} />
       </div>
     );
