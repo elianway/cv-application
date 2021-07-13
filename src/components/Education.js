@@ -5,11 +5,11 @@ const Education = (props) => {
   const { mode } = props;
   
   return (
-    <div>
+    <div className="section-block">
       <div className="section-header">
         <h2 className="section-header-text">Education</h2>
       </div>
-      <div className="element-container">
+      <div className="field-elements">
         <FormHandler fieldName="School Name" mode={mode} />
         <FormHandler fieldName="Major" mode={mode} />
         <FormHandler fieldName="Date" mode={mode} />

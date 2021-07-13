@@ -7,12 +7,12 @@ const General = (props) => {
   
   
   return (
-    <div>
+    <div className="section-block">
       <Headshot />
       <div className="section-header">
         <h2 className="section-header-text">General</h2>
       </div>
-      <div className="element-container">
+      <div className="field-elements">
         <FormHandler fieldName="Name" mode={mode} />
         <FormHandler fieldName="Email" mode={mode} />
         <FormHandler fieldName="Phone" mode={mode} />

@@ -30,7 +30,7 @@ class App extends React.Component {
   render() {
     const { mode } = this.state;
     return (
-      <div>
+      <div className="container">
         <General mode={mode} />
         <Education mode={mode} />
         <Experience mode={mode} />

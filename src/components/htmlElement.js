@@ -3,8 +3,8 @@ import React from 'react';
 const HtmlElement = (props) => {
   const { fieldName, input } = props;
   return (
-    <div>
-      <p className="field-element">{ fieldName + ": " + input }</p>
+    <div className="element-container">
+      <p className="element">{ fieldName + ": " + input }</p>
     </div>
   );
 };

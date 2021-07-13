@@ -6,11 +6,11 @@ const Experience = (props) => {
   
   
   return (
-    <div>
+    <div className="section-block">
       <div className="section-header">
         <h2 className="section-header-text">Experience</h2>
       </div>
-      <div className="element-container">
+      <div className="field-elements">
         <FormHandler fieldName="Company" mode={mode} />
         <FormHandler fieldName="Title" mode={mode} />
         <FormHandler fieldName="Description" mode={mode} />
