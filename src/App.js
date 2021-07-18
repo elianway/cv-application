@@ -41,3 +41,9 @@ class App extends React.Component {
 }
 
 export default App;
+
+//changes to make - store all state here and pass down
+//need handler functions for adding and removing fields
+//handlers for changes
+//emptyCV for start and reset
+//view docs for style-component and implement

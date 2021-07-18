@@ -6,7 +6,7 @@ const Experience = (props) => {
   
   
   return (
-    <div className="section-block">
+    <div className="section-container">
       <div className="section-header">
         <h2 className="section-header-text">Experience</h2>
       </div>

@@ -7,7 +7,7 @@ const General = (props) => {
   
   
   return (
-    <div className="section-block">
+    <div className="section-container">
       <Headshot />
       <div className="section-header">
         <h2 className="section-header-text">General</h2>

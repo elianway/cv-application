@@ -5,7 +5,7 @@ const Education = (props) => {
   const { mode } = props;
   
   return (
-    <div className="section-block">
+    <div className="section-container">
       <div className="section-header">
         <h2 className="section-header-text">Education</h2>
       </div>
