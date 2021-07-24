@@ -1,25 +1,76 @@
-import React from 'react';
-import FormHandler from './formHandler';
-import Headshot from './Headshot';
+import React from "react";
+import Input from "../Utils/Input";
+import Section from "../Utils/Section";
+import TextArea from "../Utils/TextArea";
+import FileInput from "../Utils/FileInput";
+import ImagePreview from "../Utils/ImagePreview"
 
-const General = (props) => {
-  const { mode } = props;
-  
-  
+const General = ({ personalInfo, onChange }) => {
   return (
-    <div className="section-container">
-      <Headshot />
-      <div className="section-header">
-        <h2 className="section-header-text">General</h2>
-      </div>
-      <div className="field-elements">
-        <FormHandler fieldName="Name" mode={mode} />
-        <FormHandler fieldName="Email" mode={mode} />
-        <FormHandler fieldName="Phone" mode={mode} />
-      </div>
-    </div>
+    <Section
+      title="Personal Information"
+      titlePadding="0.5rem"
+      direction="column"
+    >
+      <Input
+        onChange={(e) => onChange(e)}
+        type="text"
+        name="firstName"
+        placeholder="First name"
+        value={personalInfo.firstName}
+      />
+      <Input
+        onChange={(e) => onChange(e)}
+        type="text"
+        name="lastName"
+        placeholder="Last name"
+        value={personalInfo.lastName}
+      />
+      <Input
+        onChange={(e) => onChange(e)}
+        type="text"
+        name="title"
+        placeholder="Title"
+        value={personalInfo.title}
+      />
+      <FileInput
+        onChange={(e) => onChange(e)}
+        name="photo"
+        label="Upload Photo"
+        value={personalInfo.photo}
+      />
+      <ImagePreview
+        userImage={personalInfo.photo}
+      />
+      <Input
+        onChange={(e) => onChange(e)}
+        type="text"
+        name="address"
+        placeholder="Address"
+        value={personalInfo.address}
+      />
+      <Input
+        onChange={(e) => onChange(e)}
+        type="text"
+        name="phoneNumber"
+        placeholder="Phone number"
+        value={personalInfo.phoneNumber}
+      />
+      <Input
+        onChange={(e) => onChange(e)}
+        type="text"
+        name="email"
+        placeholder="Email"
+        value={personalInfo.email}
+      />
+      <TextArea
+        onChange={(e) => onChange(e)}
+        name="description"
+        placeholder="Description"
+        value={personalInfo.description}
+      />
+    </Section>
   );
-}
-
+};
 
 export default General;

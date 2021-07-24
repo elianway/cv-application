@@ -1,32 +1,25 @@
-import React from 'react';
-import FormHandler from './formHandler';
+import React from "react";
+import ExperienceItem from "./ExperienceItem";
+import Section from "../Utils/Section";
+import Button from "../Utils/Button";
 
-const Experience = (props) => {
-  const { mode } = props;
-  
-  
+const Experience = ({ experience, onChange, onAdd, onDelete }) => {
+  const experienceItems = experience.map((experienceItem) => (
+    <ExperienceItem
+      key={experienceItem.id}
+      id={experienceItem.id}
+      experienceItem={experienceItem}
+      onChange={onChange}
+      onDelete={onDelete}
+    />
+  ));
+
   return (
-    <div className="section-container">
-      <div className="section-header">
-        <h2 className="section-header-text">Experience</h2>
-      </div>
-      <div className="field-elements">
-        <FormHandler fieldName="Company" mode={mode} />
-        <FormHandler fieldName="Title" mode={mode} />
-        <FormHandler fieldName="Description" mode={mode} />
-        <FormHandler fieldName="Date" mode={mode} />
-        <FormHandler fieldName="Company" mode={mode} />
-        <FormHandler fieldName="Title" mode={mode} />
-        <FormHandler fieldName="Description" mode={mode} />
-        <FormHandler fieldName="Date" mode={mode} />
-        <FormHandler fieldName="Company" mode={mode} />
-        <FormHandler fieldName="Title" mode={mode} />
-        <FormHandler fieldName="Description" mode={mode} />
-        <FormHandler fieldName="Date" mode={mode} />
-      </div>
-    </div>
+    <Section title="Experience" titlePadding="0.5rem" direction="column">
+      {experienceItems}
+      <Button text="Add" onClick={onAdd}></Button>
+    </Section>
   );
-}
-
+};
 
 export default Experience;

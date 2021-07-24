@@ -1,13 +1,80 @@
 import React from "react";
+import styled, { css } from "styled-components";
 
-const Button = (props) => {
-  const { mode, handleButton } = props;
-
+const Button = ({ text, onClick, primary, secondary, red, green }) => {
   return (
-    <div className="btn-container">
-      <button id="btn-submit" onClick={handleButton}>{mode}</button>
-    </div>
+    <ButtonWrapper
+      onClick={onClick}
+      primary={primary}
+      secondary={secondary}
+      red={red}
+      green={green}
+    >
+      {text}
+    </ButtonWrapper>
   );
-}
+};
+
+const ButtonWrapper = styled.button`
+  padding: 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: ${({ theme }) => theme.colors.dark};
+  color: ${({ theme }) => theme.colors.light};
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.darkHover};
+  }
+  &:active {
+    background-color: ${({ theme }) => theme.colors.darkActive};
+  }
+  ${(props) =>
+    props.primary &&
+    css`
+      background-color: ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.light};
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.primaryHover};
+      }
+      &:active {
+        background-color: ${({ theme }) => theme.colors.primaryActive};
+      }
+    `}
+  ${(props) =>
+    props.secondary &&
+    css`
+      background-color: ${({ theme }) => theme.colors.secondary};
+      color: ${({ theme }) => theme.colors.light};
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.secondaryHover};
+      }
+      &:active {
+        background-color: ${({ theme }) => theme.colors.secondaryActive};
+      }
+    `}
+  ${(props) =>
+    props.red &&
+    css`
+      background-color: ${({ theme }) => theme.colors.red};
+      color: ${({ theme }) => theme.colors.light};
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.redHover};
+      }
+      &:active {
+        background-color: ${({ theme }) => theme.colors.redActive};
+      }
+    `}
+  ${(props) =>
+    props.green &&
+    css`
+      background-color: ${({ theme }) => theme.colors.green};
+      color: ${({ theme }) => theme.colors.light};
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.greenHover};
+      }
+      &:active {
+        background-color: ${({ theme }) => theme.colors.greenActive};
+      }
+    `}
+`;
 
 export default Button;

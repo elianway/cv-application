@@ -1,25 +1,25 @@
-import React from 'react';
-import FormHandler from './formHandler';
+import React from "react";
+import EducationItem from "./EducationItem";
+import Section from "../Utils/Section";
+import Button from "../Utils/Button";
 
-const Education = (props) => {
-  const { mode } = props;
-  
+const Education = ({ education, onChange, onAdd, onDelete }) => {
+  const educationItems = education.map((educationItem) => (
+    <EducationItem
+      key={educationItem.id}
+      id={educationItem.id}
+      educationItem={educationItem}
+      onChange={onChange}
+      onDelete={onDelete}
+    ></EducationItem>
+  ));
+
   return (
-    <div className="section-container">
-      <div className="section-header">
-        <h2 className="section-header-text">Education</h2>
-      </div>
-      <div className="field-elements">
-        <FormHandler fieldName="School Name" mode={mode} />
-        <FormHandler fieldName="Major" mode={mode} />
-        <FormHandler fieldName="Date" mode={mode} />
-        <FormHandler fieldName="School Name" mode={mode} />
-        <FormHandler fieldName="Major" mode={mode} />
-        <FormHandler fieldName="Date" mode={mode} />
-      </div>
-    </div>
+    <Section title="Education" titlePadding="0.5rem" direction="column">
+      {educationItems}
+      <Button text="Add" onClick={onAdd}></Button>
+    </Section>
   );
-}
-
+};
 
 export default Education;

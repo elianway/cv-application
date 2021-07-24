@@ -1,14 +1,20 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import styled from 'styled-components'
-import CVForm from './CVForm'
+import CVApp from './CVApp'
 import emptyCV from './Utils/emptyCV'
+import CVContent from './CVContent'
 
-const main = () => {
+const Main = () => {
   const [ cv, setCv ] = useState(emptyCV)
 
   const handleChangeGeneral = (e) => {
-    const { name, id, type } = e.target
+    const { name, value, type } = e.target
+
+    if (type === 'file') {
+      handleChangeFile(e)
+      return
+    }
 
     setCv((prevState) => ({
       ...prevState,
@@ -20,7 +26,21 @@ const main = () => {
   }
 
   const handleChangeFile = (e) => {
+    const { name } = e.target
+    const file = e.target.files[0]
+    if (!file) return
 
+    const reader = new FileReader()
+    reader.onload = () => {
+      setCv((prevState) => ({
+        ...prevState,
+        personalInfo: {
+          ...prevState.personalInfo,
+          [name]: reader.result,
+        },
+      }))
+    }
+    reader.readAsDataURL(file)
   }
 
   const handleChangeEducation = (e, id) => {
@@ -95,7 +115,7 @@ const main = () => {
     }))
   }
 
-  const handleDeleteExperience = (e, id) => {
+  const handleDeleteExperience = (id) => {
     setCv((prevState) => {
       const newExperience = prevState.experience.filter(
         (item) => item.id !== id
@@ -118,12 +138,51 @@ const main = () => {
   }
 
   const handleReset = () => {
-    setCv(emptyCv)
+    setCv(emptyCV)
   }
 
-  return (
-
-  )
+  if (cv.edit === true) { 
+    return (
+      <MainWrapper>
+        <CVApp
+        cv={cv}
+        onChangeGeneral={handleChangeGeneral}
+        onChangeEducation={handleChangeEducation}
+        onAddEducation={handleAddEducation}
+        onDeleteEducation={handleDeleteEducation}
+        onChangeExperience={handleChangeExperience}
+        onAddExperience={handleAddExperience}
+        onDeleteExperience={handleDeleteExperience}
+        onReset={handleReset}
+        onSubmit={handleSubmit}
+      />
+    </MainWrapper>
+      )
+    } else return (
+      <MainWrapper>
+        <CVContent
+        cv={cv}
+        onSubmit={handleSubmit}
+        onReset={handleReset}
+        />
+      </MainWrapper>
+    )
 }
 
-export default main;
+export default Main;
+
+const MainWrapper = styled.main`
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4rem;
+  max-width: 1800px;
+  padding: 4rem 8rem;
+  margin: 0 auto;
+  margin-bottom: 4rem;
+
+  @media (max-width: 1600px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;

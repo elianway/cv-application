@@ -1,11 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-const Input = ({ type, name, placeholder, onChange, value }) => {
+const TextArea = ({ onChange, name, placeholder, value }) => {
   return (
-    <InputWrapper
+    <TextAreaWrapper
       onChange={onChange}
-      type={type}
       name={name}
       placeholder={placeholder}
       value={value}
@@ -13,14 +12,17 @@ const Input = ({ type, name, placeholder, onChange, value }) => {
   );
 };
 
-const InputWrapper = styled.input`
+const TextAreaWrapper = styled.textarea`
+  height: 80px;
   padding: 0.5rem;
+  padding-right: 2rem;
   border-radius: 5px;
   border: 1px solid transparent;
-
+  resize: none;
+  
   &:focus {
     border: 1px solid ${({ theme }) => theme.colors.lightActive};
   }
 `;
 
-export default Input;
+export default TextArea;
