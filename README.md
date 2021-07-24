@@ -14,8 +14,8 @@ npm start
 ```
 ## Built with
 
--React
--react-icons
--styled-components
--uuid
--react-to-print
+- React
+- react-icons
+- styled-components
+- uuid
+- react-to-print
