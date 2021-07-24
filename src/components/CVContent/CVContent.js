@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import Content from './Content';
-import Button from '../Utils/Button';
 
-const CVContent = ({ cv, onSubmit, onReset }) => {
-  return (
+class CVContent extends Component {
+  render() {
+    const { cv, onSubmit, onReset, onPrint } = this.props;
+
+    return (
     <CVContentWrapper>
       <Header personalInfo={cv.personalInfo} />
       <Content
@@ -15,11 +17,13 @@ const CVContent = ({ cv, onSubmit, onReset }) => {
         education={cv.education}
         onSubmit={onSubmit}
         onReset={onReset}
+        onPrint={onPrint}
       />
       <Sidebar personalInfo={cv.personalInfo} />
     </CVContentWrapper>
-  );
-}
+    );
+  };
+};
 
 export default CVContent;
 

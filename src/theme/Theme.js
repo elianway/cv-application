@@ -22,6 +22,9 @@ export const Theme = {
       green: "#60db6b",
       greenHover: "#55c25f",
       greenActive: "#48a350",
+      purple: "#b134eb",
+      purpleHover: "#9329c4",
+      purpleActive: "#651c87"
     },
   };
   

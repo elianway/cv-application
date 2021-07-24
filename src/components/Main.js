@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import styled from 'styled-components'
+import { useReactToPrint } from 'react-to-print'
 import CVApp from './CVApp'
 import emptyCV from './Utils/emptyCV'
 import CVContent from './CVContent'
@@ -141,6 +142,10 @@ const Main = () => {
     setCv(emptyCV)
   }
 
+  const componentRef = useRef()
+
+  const handlePrint = useReactToPrint({ content: () => componentRef.current })
+
   if (cv.edit === true) { 
     return (
       <MainWrapper>
@@ -164,6 +169,8 @@ const Main = () => {
         cv={cv}
         onSubmit={handleSubmit}
         onReset={handleReset}
+        onPrint={handlePrint}
+        ref={componentRef}
         />
       </MainWrapper>
     )

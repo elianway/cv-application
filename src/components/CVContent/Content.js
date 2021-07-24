@@ -5,7 +5,7 @@ import EducationItem from './EducationItem';
 import Section from '../Utils/Section';
 import Button from '../Utils/Button';
 
-const Content = ({ personalInfo, experience, education, onSubmit, onReset }) => {
+const Content = ({ personalInfo, experience, education, onSubmit, onReset, onPrint }) => {
   const experienceItems = experience.map((experienceItem) => (
     <ExperienceItem key={experienceItem.id} experienceItem={experienceItem} />
   ));
@@ -31,6 +31,9 @@ const Content = ({ personalInfo, experience, education, onSubmit, onReset }) => 
         </ButtonWrapper>
         <ButtonWrapper>
           <Button text="Reset" onClick={onReset} red />
+        </ButtonWrapper>
+        <ButtonWrapper>
+          <Button text="Generate PDF" onClick={onPrint} purple />
         </ButtonWrapper>
       </ButtonContainer>
     </ContentWrapper>
