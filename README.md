@@ -18,4 +18,3 @@ npm start
 - react-icons
 - styled-components
 - uuid
-- react-to-print
