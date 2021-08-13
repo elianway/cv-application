@@ -22,6 +22,10 @@ const Label = styled.label`
   &:active {
     border: 1px solid ${({ theme }) => theme.colors.lightActive};
   }
+
+  &:hover {
+    color: blue;
+  }
 `;
 
 export default FileInput;
